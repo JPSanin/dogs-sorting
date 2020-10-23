@@ -40,10 +40,6 @@ public class Dog implements Comparable<Dog>{
 	
 	
 	
-	
-	
-	
-	
 	public int getId() {
 		return id;
 	}
