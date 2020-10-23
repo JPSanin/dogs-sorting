@@ -12,7 +12,6 @@ public class Dog implements Comparable<Dog>{
 	private LocalDate birthDate;
 	private PApplet app;
 	public Dog(int id, String name, int age, String breed, String dateString, PApplet app) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
