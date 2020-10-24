@@ -32,6 +32,11 @@ public class Main extends PApplet{
 		for (int i = 0; i < controller.getDogList().getDogList().size(); i++) {
 			controller.getDogList().getDogList().get(i).draw(25+(i*130));
 		}
+		
+		fill(255,0,0);
+		text("To sort by id press 'i', To sort by name press 'n', To sort by age press 'a', To sort by breed press 'b', "
+				+ "To sort by birth date press 'd'", 275,350);
+		
 	}
 	
 	public void keyPressed() {

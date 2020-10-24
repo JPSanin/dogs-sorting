@@ -22,28 +22,34 @@ public class Dog implements Comparable<Dog>{
 		this.birthDate = LocalDate.parse(dateString,formatter);
 		this.app = app;
 	}
-	
-	
+
+
 	public void draw(int posX) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
 		String info="ID:"+id+"\n"+"Name: "+name+"\n"+"Age: "+age+"\n"+"Breed:"+"\n"+breed+"\n"+"Birth Date:" +"\n"+formatter.format(birthDate);
+		app.fill(255);
 		app.textSize(12);
 		app.text(info,posX, 150);
 	}
-	
-	
-	public String exportString(char c) {
+
+
+	public String exportString() {
 		String info="";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+	
+			info+= id+" | "+name.toLowerCase()+ " | "+age+" | "+ breed.toLowerCase()+" | "+formatter.format(birthDate);
+		
+
 		return info;
 	}
-	
+
 	@Override
 	public int compareTo(Dog d1) {
 		return id-d1.getId();
 	}
-	
-	
-	
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -83,9 +89,9 @@ public class Dog implements Comparable<Dog>{
 
 
 
-	
-	
-	
-	
-	
+
+
+
+
+
 }

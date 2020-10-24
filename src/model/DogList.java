@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 
 import processing.core.PApplet;
 
@@ -19,6 +19,10 @@ public class DogList {
 	
 	public DogList(PApplet app) {
 		dogList= new ArrayList<Dog>();
+		nc= new NameComparator();
+		ac= new AgeComparator();
+		bc= new BreedComparator();
+		dc=new DateComparator();
 		this.app = app;
 	}
 	
@@ -49,6 +53,52 @@ public class DogList {
 	}
 	
 	public void sort(char c) {
+		String[] export= new String [dogList.size()+1];
+		export[0]= "ID | Name | Age | Breed | Birth Date ";
+		String exportname="";
+		switch(c) {
+		
+		case 'i':
+			Collections.sort(dogList);
+			exportname="Id Export";
+			for (int i = 0; i < dogList.size(); i++) {
+				export[i+1]= dogList.get(i).exportString();
+			}
+			break;
+		case 'a':
+			Collections.sort(dogList,ac);
+			exportname="Age Export";
+			for (int i = 0; i < dogList.size(); i++) {
+				export[i+1]= dogList.get(i).exportString();
+			}
+			break;
+		case 'd':
+			Collections.sort(dogList,dc);
+			exportname="Birth Date Export";
+			for (int i = 0; i < dogList.size(); i++) {
+				export[i+1]= dogList.get(i).exportString();
+			}
+			break;
+		case 'n':
+			Collections.sort(dogList,nc);
+			exportname="Name Export";
+			for (int i = 0; i < dogList.size(); i++) {
+				export[i+1]= dogList.get(i).exportString();
+			}
+			break;
+			
+		case 'b':
+			Collections.sort(dogList,bc);
+			
+			exportname="Breed Export";
+			for (int i = 0; i < dogList.size(); i++) {
+				export[i+1]= dogList.get(i).exportString();
+			}
+			break;
+			
+		}
+		app.saveStrings("data/"+exportname+".txt", export);
+		
 		
 	}
 
