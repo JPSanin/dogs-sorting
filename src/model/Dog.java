@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import processing.core.PApplet;
 
 public class Dog implements Comparable<Dog>{
@@ -16,14 +18,17 @@ public class Dog implements Comparable<Dog>{
 		this.name = name;
 		this.age = age;
 		this.breed = breed;
-		birthDate = LocalDate.parse(dateString);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+		this.birthDate = LocalDate.parse(dateString,formatter);
 		this.app = app;
 	}
 	
 	
 	public void draw(int posX) {
-		String info="ID:"+id+"\n "+"Name: "+name+"\n"+"Age: "+age+"\n"+"Breed: "+breed+"\n"+"Birth Date: "+birthDate;
-		app.text(info,posX, 300);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+		String info="ID:"+id+"\n"+"Name: "+name+"\n"+"Age: "+age+"\n"+"Breed:"+"\n"+breed+"\n"+"Birth Date:" +"\n"+formatter.format(birthDate);
+		app.textSize(12);
+		app.text(info,posX, 150);
 	}
 	
 	

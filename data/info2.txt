@@ -1,4 +1,3 @@
-  
 2,Gran Danes,12-5-2014
 5,Labrador,10-11-2017
 3,Doberman,25-2-1999
